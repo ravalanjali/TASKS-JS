@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Show User IP Address</title>
+    <style>
+        body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  #ip-address {
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+  }
+    </style>
+    <script>
+        fetch('https://api.ipify.org?format=json')
+  .then(response => response.json())
+  .then(data => {
+    document.querySelector('#ip-address').textContent = data.ip;
+  });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Your IP Address</h1>
+      <div id="ip-address"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
